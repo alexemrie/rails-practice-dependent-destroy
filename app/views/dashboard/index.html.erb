@@ -5,12 +5,15 @@
   <thead>
   <tr>
     <th>Name</th>
+    <th>Edit Patient</th>
   </tr>
   </thead>
+  <%= link_to "New  Patient", new_patient_path(@patient) %>
   <tbody>
   <% @patients.each do |patient| %>
     <tr>
       <td><%= link_to full_name(patient), patient %></td>
+      <td><%= link_to "Delete", patient_path(patient), method: :delete, data:{confirm: "Are you sure you want to remove this patient?"} %></td>
     </tr>
   <% end %>
   </tbody>
@@ -21,12 +24,15 @@
   <thead>
   <tr>
     <th>Name</th>
+    <th>Edit Medication</th>
   </tr>
   </thead>
   <tbody>
+  <%= link_to "New Medication", new_medication_path %>
   <% @medications.each do |medication| %>
       <tr>
         <td><%= link_to medication.name, medication %></td>
+        <td><%= link_to "Delete", medication_path(medication), method: :delete, data: {confirm: "Are you sure you want to remove this medication?"} %></td>
       </tr>
   <% end %>
   </tbody>

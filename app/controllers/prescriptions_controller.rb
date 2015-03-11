@@ -20,6 +20,16 @@ class PrescriptionsController < ApplicationController
 
   end
 
+  
+
+  def destroy
+    @patient = Patient.find(params[:patient_id])
+    prescription = Prescription.find(params[:id])
+    prescription.destroy
+      redirect_to patient_path(@patient)
+      flash[:notice] = "Your prescription was successfully deleted"
+  end
+
   private
 
   def allowed_params
