@@ -8,6 +8,6 @@ Rails.application.routes.draw do
     resources :prescriptions
   end
 
-  resources :medications, :only => [:show, :new, :create]
+  resources :medications, :only => [:show, :new, :create, :destroy]
 
 end
